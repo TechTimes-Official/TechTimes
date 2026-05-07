@@ -211,17 +211,44 @@
             nav { font-size: 0.8rem; }
             header { height: 40vh; }
         }
+/* 1. Für sehr schmale Bildschirme (max 480px, z.B. ältere iPhones) */
+        @media (max-width: 480px) {
+            nav {
+                justify-content: flex-start; /* Linksbündig, falls es umbricht */
+                padding: 10px 5px;
+                border-radius: 15px; /* Weniger runder Kapsel-Look */
+                flex-wrap: nowrap; /* Verhindert Umbruch, erzwingt Scrollen */
+                overflow-x: auto; /* Erlaubt horizontales Scrollen der Nav-Leiste */
+                -webkit-overflow-scrolling: touch; /* Sanftes Scrollen auf iOS */
+            }
+            .nav-btn {
+                flex: 0 0 auto; /* Verhindert das Schrumpfen/Wachsen der Buttons */
+                font-size: 0.8rem;
+                padding: 10px 12px;
+            }
+            header { height: 40vh; }
+            .card-visual img { max-width: 90%; }
+        }
+
+        /* 2. Für normale Handys und kleine Tablets (max 768px) */
+        @media (max-width: 768px) {
+            .card { flex-direction: column; } /* Erzwingt vertikale Stapelung */
+            .card-text { text-align: center; align-items: center; padding: 30px; }
+            .card-visual { padding: 20px; }
+            .card-text h2 { font-size: 1.6rem; }
+            .footer-grid { grid-template-columns: 1fr; } /* Stapelt Footer-Spalten */
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <nav>
-            <a href="#" class="nav-btn active">Homepage</a>
-            <a href="#" class="nav-btn">Über uns</a>
-            <a href="#" class="nav-btn">Tutorials</a>
-            <a href="#" class="nav-btn">Check</a>
-        </nav>
+      <nav>
+    <a href="index.html" class="nav-btn active">Homepage</a>
+    <a href="ueber-uns.html" class="nav-btn">Über uns</a>
+    <a href="tutorials.html" class="nav-btn">Tutorials</a>
+    <a href="check.html" class="nav-btn">Check</a>
+</nav>
     </header>
 
     <main class="container">
@@ -229,8 +256,8 @@
         <article class="card card-a">
             <div class="card-text">
                 <h2>Deine großen Technik-Tipps!</h2>
-                <p>Entdecke die neuesten Trends der Tech-Welt. Wir zeigen dir, wie du das Beste aus deinen Geräten herausholst und welche Software du 2026 wirklich brauchst. Bleib immer einen Schritt voraus.</p>
-                <a href="#" class="btn-capsule">Mehr über uns</a>
+                <p>Entdecke die neuesten Trends der Tech-Welt. Wir zeigen dir, wie du das Beste aus deinen Geräten herausholst und welche Open-Source-Software du 2026 wirklich brauchst. Bleib mit uns immer einen Schritt voraus.</p>
+                <a href="ueber-uns.html" class="btn-capsule">Mehr über uns</a>
             </div>
             <div class="card-visual">
                 <img src="https://i.postimg.cc/VkfcCrHK/Beige-Weisses-Eleganter-Motivierender-Organisation-Desktop-Mai-Kalender-Hintergrund-Bild-7-removebg.png" alt="Technik Tipps Logo">
@@ -240,8 +267,8 @@
         <article class="card card-b">
             <div class="card-text">
                 <h2>Unser aktuelles Video</h2>
-                <p>In diesem Tutorial erfährst du alles über die Einrichtung deines Smart Homes. Wir führen dich Schritt für Schritt durch die Installation und Konfiguration der wichtigsten Komponenten.</p>
-                <a href="#" class="btn-capsule">Video-Archiv ansehen</a>
+                <p>In diesem Tutorial erfährst du alles wichtige über die Einrichtung deines Linux-PCs und weitere erste Schritte in Linux Mint..</p>
+                <a href="#" class="btn-capsule">Alle Videos auf YouTube</a>
             </div>
             <div class="card-visual">
                 <div class="video-container">
@@ -254,24 +281,23 @@
 
     <footer>
         <div class="footer-logo">
-            <img src="https://i.postimg.cc/2SQfqdwP/Beige-Weisses-Eleganter-Motivierender-Organisation-Desktop-Mai-Kalender-Hintergrund-Bild-5-removebg.png" alt="TechTimes Logo">
+            <img src="https://i.postimg.cc/2SQfqdwP/Beige-Weisses-Eleganter-Motivierender-Organisation-Desktop-Mai-Kalender-Hintergrund-Bild-5-removebg.png" alt="TechTimes Logo lang">
         </div>
         
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Intern</h4>
                 <ul>
-                    <li><a href="#">Homepage</a></li>
-                    <li><a href="#">Über uns</a></li>
-                    <li><a href="#">Tutorials</a></li>
-                    <li><a href="#">Check</a></li>
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="ueber-uns.html">Über uns</a></li>
+                    <li><a href="tutorials.html">Tutorials</a></li>
+                    <li><a href="check.html">Check</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Social Media</h4>
                 <ul>
                     <li><a href="#">YouTube</a></li>
-                    <li><a href="#">Instagram</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -285,7 +311,7 @@
         </div>
 
         <div class="copyright">
-            Copyright TechTimes 2026
+             < Copyright TechTimes 2026 >
         </div>
     </footer>
 
