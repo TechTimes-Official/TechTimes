@@ -238,6 +238,65 @@
             .card-text h2 { font-size: 1.6rem; }
             .footer-grid { grid-template-columns: 1fr; } /* Stapelt Footer-Spalten */
         }
+        /* --- Sektion 3: Footer Optimierung --- */
+footer {
+    background: var(--footer-gradient);
+    padding: 40px 20px 20px; /* Oben etwas weniger Padding */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.footer-logo {
+    text-align: center;
+    margin-bottom: 30px; /* Abstand nach dem Logo verringert */
+}
+
+.footer-logo img {
+    max-width: 280px; /* Standardgröße Desktop */
+    width: 100%;      /* Sorgt dafür, dass es nie breiter als der Screen ist */
+    height: auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --- MOBILE ANPASSUNGEN (Media Query) --- */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px 15px; /* Noch kompakter auf dem Handy */
+    }
+
+    .footer-logo {
+        margin-bottom: 20px; /* Weniger Platz verschwenden */
+    }
+
+    .footer-logo img {
+        max-width: 180px; /* HIER: Das Logo wird auf dem Handy deutlich kleiner */
+    }
+
+    .footer-grid {
+        gap: 20px; /* Weniger Abstand zwischen den Link-Blöcken */
+    }
+
+    .footer-col h4 {
+        margin-bottom: 10px; /* Kompakterer Text */
+        font-size: 0.9rem;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 5px; /* Links rücken näher zusammen */
+    }
+
+    .copyright {
+        margin-top: 30px; /* Abstand zum Copyright verringert */
+    }
+}
     </style>
 </head>
 <body>
