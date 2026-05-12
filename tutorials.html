@@ -44,41 +44,16 @@
             padding-bottom: 40px;
         }
 
-nav {
-    position: relative; /* Normal im Header */
-    z-index: 1000;
-    width: 90%;
-    max-width: 800px;
-    background: var(--nav-gradient);
-    padding: 10px 20px;
-    border-radius: var(--pill-radius);
-    display: flex;
-    justify-content: space-around;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    transition: border-radius 0.3s ease; /* NUR border-radius animieren */
-    margin: 0 auto 40px;
-}
-
-/* Wenn angedockt: fixed oben, eckig, volle Breite — ohne Breitenanimation */
-nav.is-sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
-
-/* Platzhalter verhindert Sprung beim Fixieren */
-#nav-placeholder {
-    display: none;
-    height: 0;
-}
-#nav-placeholder.active {
-    display: block;
-}
+        nav {
+            width: 90%;
+            max-width: 800px;
+            background: var(--nav-gradient);
+            padding: 10px;
+            border-radius: var(--pill-radius);
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
 
         .nav-btn {
             text-decoration: none;
@@ -335,7 +310,6 @@ footer {
     <a href="tutorials.html" class="nav-btn active">Tutorials</a>
     <a href="check.html" class="nav-btn">Check</a>
 </nav>
-                <div id="nav-placeholder"></div>
     </header>
 
     <main class="container">
@@ -402,28 +376,4 @@ footer {
     </footer>
 
 </body>
-    <script>
-    const nav = document.getElementById('main-nav');
-    const placeholder = document.getElementById('nav-placeholder');
-    const header = document.querySelector('header');
-
-    function updateNav() {
-        const headerBottom = header.getBoundingClientRect().bottom;
-        if (headerBottom <= 0) {
-            // Header ist oben raus → Nav fixieren und eckig machen
-            if (!nav.classList.contains('is-sticky')) {
-                placeholder.style.height = nav.offsetHeight + 'px';
-                placeholder.classList.add('active');
-                nav.classList.add('is-sticky');
-            }
-        } else {
-            // Header noch sichtbar → Nav normal im Header
-            nav.classList.remove('is-sticky');
-            placeholder.classList.remove('active');
-        }
-    }
-
-    window.addEventListener('scroll', updateNav, { passive: true });
-    updateNav(); // Einmal beim Laden prüfen
-</script>
 </html>
